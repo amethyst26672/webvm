@@ -118,71 +118,7 @@ __      __   _  __   ____  __
 	const bold= "\x1b[1;37m";
 	const underline= "\x1b[94;4m";
 	const normal= "\x1b[0m";
-	var printOnTerm = {
-		getAsciiTitle: function ()
-		{
-			var title = [
-				color + "                        __      __   _  __   ____  __       " + normal,
-				color + "                        \\ \\    / /__| |_\\ \\ / /  \\/  | " + normal,
-				color + "                         \\ \\/\\/ / -_) '_ \\ V /| |\\/| | " + normal,
-				color + "                          \\_/\\_/\\___|_.__/\\_/ |_|  |_|  " + normal,
-
-			];
-			return title;
-		},
-		getAsciiText: function ()
-		{
-			var text = [
-				"+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+",
-				"|                                                                             |",
-				"| WebVM is a server-less virtual Linux environment running fully client-side  |",
-				"| in HTML5/WebAssembly.                                                       |",
-				"|                                                                             |",
-				"| WebVM is powered by the CheerpX virtualization engine, which enables safe,  |",
-				"| sandboxed client-side execution of x86 binaries on any browser.             |",
-				"|                                                                             |",
-				"| CheerpX includes an x86-to-WebAssembly JIT compiler, a virtual block-based  |",
-				"| file system, and a Linux syscall emulator.                                  |",
-				"|                                                                             |",
-				"| [NEW!] Your own WebVM with custom images via Dockerfile:                    |",
-				"|                                                                             |",
-				"| " + underline + "https://leaningtech.com/mini-webvm-your-linux-box-from-dockerfile-via-wasm" + normal +"  |",
-				"|                                                                             |",
-				"+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+",
-				"",
-				"   Welcome to WebVM. If unsure, try these examples:",
-				"",
-				"     python3 examples/python3/fibonacci.py ",
-				"     gcc -o helloworld examples/c/helloworld.c && ./helloworld",
-				"     objdump -d ./helloworld | less -M",
-				"     vim examples/c/helloworld.c",
-				"     curl --max-time 15 parrot.live  # requires networking",
-				"",
-				];
-			return text;
-		},
-		getSharedArrayBufferMissingMessage: function ()
-		{
-			const isCustom = window.location.hostname !== "webvm.io";
-			const isSecureContext = window.isSecureContext;
-			const text = [
-				"",
-				"",
-				color + "CheerpX could not start" + normal,
-				"",
-				"CheerpX uses SharedArrayBuffer, which is not available right now.",
-				"",
-				!isSecureContext && "  -  This page is not in a secure context. Serve over HTTPS or WSS.",
-				!isSecureContext && "    " + underline + "https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts" + noral,
-				isCustom && "  -  The document is not cross-origin isolated.",
-				isCustom && "     " + underline + "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#security_requirements" + normal, 
-				"  - Your browser might not support SharedArrayBuffer.",
-				"    Since 2022, all major browsers support this feature.",
-				"    " + underline + "https://caniuse.com/sharedarraybuffer" + normal,
-			].filter(Boolean);
-
-			return text;
-		},
+	//
 		getErrorMessage: function (error_message)
 		{
 			const text = [
